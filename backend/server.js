@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 //routes for user
-app.use('/api/auth',authRoutes);
+app.use('/api/users',authRoutes);
 
 
 app.listen(PORT, () => {
