@@ -6,7 +6,13 @@ const userSchema = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true }, // Hashed password
-    roomsJoined: [{ type: String }], // Array of room IDs
+    roomsCreated: { type: [String], default: [] }, // Array of room IDs
+    roomsJoined: [
+      {
+          roomId: { type: String, required: true },
+          roomName: { type: String, required: true }
+      }
+  ], // Array of room IDs
     role: { type: String, enum: ['host', 'participant'], default: 'participant' },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
